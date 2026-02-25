@@ -329,14 +329,20 @@
         </div>
     </section>
     <section id="berita" class="py-20 bg-slate-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-black italic uppercase">Berita & Edukasi</h2>
-                <p class="text-slate-500">Update otomatis dari Nanda Teknik.</p>
-            </div>
-            <div id="json-news-container" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-black italic uppercase">Berita & Edukasi</h2>
+            <p class="text-slate-500">Update otomatis dari Nanda Teknik.</p>
         </div>
-    </section>
+        <div id="json-news-container" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        
+        <div class="text-center mt-12">
+            <button id="load-more-btn" onclick="fetchNandaNews()" class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-full font-bold transition shadow-lg inline-flex items-center">
+                <i class="fas fa-sync-alt mr-2" id="loader-icon"></i> Tampilkan Lebih Banyak
+            </button>
+        </div>
+    </div>
+</section>
 
     <section class="py-20 bg-slate-900 text-white text-left">
         <div class="container mx-auto px-4 max-w-4xl">
@@ -410,68 +416,129 @@
             window.open(`https://wa.me/628123456789?text=Halo Admin Ambulance Banyuwangi Center,*Nama:* ${nama}%0A*Layanan:* ${layanan}%0A*Pesan:* ${pesan}`, '_blank');
         }
 
-      // --- FITUR BERITA ---
-    function fetchNandaNews() {
-        const script = document.createElement('script');
-        // Tak set max-results=3 dadi sing metu berita paling anyar tok
-        script.src = "https://www.nandateknik.com/feeds/posts/default?alt=json-in-script&callback=displayNews&max-results=3";
-        document.body.appendChild(script);
-    }
+      // Konfigurasi Utama
+let startIndex = 1; 
+const maxResults = 3; 
+const blogUrl = "https://www.nandateknik.com";
+const siteUrl = "https://nandateknik.github.io/ambulance/";
 
-    function displayNews(json) {
+// 1. Fungsi Narik Data (Fetch)
+function fetchNandaNews() {
+    const btn = document.getElementById('load-more-btn');
+    const icon = document.getElementById('loader-icon');
+    
+    // Efek Loading
+    if(icon) icon.classList.add('fa-spin');
+    if(btn) btn.disabled = true;
+
+    const script = document.createElement('script');
+    script.src = `${blogUrl}/feeds/posts/default?alt=json-in-script&callback=displayNews&max-results=${maxResults}&start-index=${startIndex}`;
+    document.body.appendChild(script);
+}
+
+// 2. Fungsi Tampilake Berita & Generate Schema
+function displayNews(json) {
     const container = document.getElementById('json-news-container');
-    let html = '';
+    const btn = document.getElementById('load-more-btn');
+    const icon = document.getElementById('loader-icon');
     const entries = json.feed.entry;
 
-    // --- IKI TAMBAHAN SCHEMA LIST ---
-    let itemListElement = [];
-    
-    if (entries) {
-        entries.forEach((entry, index) => {
+    if (entries && entries.length > 0) {
+        let html = '';
+        
+        entries.forEach((entry) => {
             const title = entry.title.$t;
             const fullId = entry.id.$t;
             const newsId = fullId.split('-').pop(); 
             const slug = title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
-            const pageUrl = `https://nandateknik.github.io/ambulance//blog.html?id=${newsId}&n=${slug}`;
+            const pageUrl = `blog.html?id=${newsId}&n=${slug}`;
 
+            // Handle Gambar (Default lek gak enek thumbnail)
             let imgUrl = "https://images.unsplash.com/photo-1587350859728-117699f4a13d?w=600";
-            if (entry.media$thumbnail) imgUrl = entry.media$thumbnail.url.replace("s72-c", "s600");
-
-            // Data gawe Schema
-            itemListElement.push({
-                "@type": "ListItem",
-                "position": index + 1,
-                "url": pageUrl,
-                "name": title
-            });
+            if (entry.media$thumbnail) {
+                imgUrl = entry.media$thumbnail.url.replace("s72-c", "s600");
+            }
 
             html += `
-            <div class="bg-white rounded-xl overflow-hidden shadow-md border border-slate-100">
-                <img src="${imgUrl}" class="w-full h-48 object-cover" alt="${title}">
+            <div class="bg-white rounded-xl overflow-hidden shadow-md border border-slate-100 opacity-0 transform translate-y-4 transition duration-500 news-card">
+                <img src="${imgUrl}" class="w-full h-48 object-cover" alt="${title}" loading="lazy">
                 <div class="p-6 text-left">
-                    <h4 class="font-bold text-lg mb-3">${title}</h4>
-                    <a href="blog.html?id=${newsId}&n=${slug}" class="text-red-600 font-bold text-xs uppercase italic hover:underline">Baca Selengkapnya</a>
+                    <h4 class="font-bold text-lg mb-3 leading-snug text-slate-900">${title}</h4>
+                    <a href="${pageUrl}" class="text-red-600 font-bold text-xs uppercase italic hover:underline flex items-center">
+                        Baca Selengkapnya <i class="fas fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
                 </div>
             </div>`;
         });
-        container.innerHTML = html;
 
-        // INJECT SCHEMA LIST KE HEAD
-        const listSchema = {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "itemListElement": itemListElement
-        };
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify(listSchema);
-        document.head.appendChild(script);
+        // Inject HTML menyang Container
+        container.insertAdjacentHTML('beforeend', html);
+        
+        // Jalankan Animasi Muncul
+        setTimeout(() => {
+            document.querySelectorAll('.news-card').forEach(card => {
+                card.classList.remove('opacity-0', 'translate-y-4');
+            });
+        }, 100);
+
+        // --- UPDATE SCHEMA ITEMLIST (SEO) ---
+        updateNewsSchema();
+
+        // Update Index & Reset Tombol
+        startIndex += maxResults;
+        if(icon) icon.classList.remove('fa-spin');
+        if(btn) {
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fas fa-sync-alt mr-2" id="loader-icon"></i> Tampilkan Lebih Banyak`;
+        }
+    } else {
+        // Lek Berita wis entek
+        if(btn) {
+            btn.innerHTML = "Semua Berita Telah Dimuat";
+            btn.classList.replace('bg-blue-700', 'bg-slate-400');
+            btn.onclick = null;
+        }
     }
 }
-    // --- PENTING: IKI SING GARAI METU ---
-    window.onload = function() {
-        fetchNandaNews();
+
+// 3. Fungsi Khusus Generate Schema List (Gawe Google)
+function updateNewsSchema() {
+    let itemListElement = [];
+    const allCards = document.querySelectorAll('.news-card');
+
+    allCards.forEach((card, index) => {
+        const title = card.querySelector('h4').innerText;
+        const url = card.querySelector('a').href;
+        
+        itemListElement.push({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": url,
+            "name": title
+        });
+    });
+
+    // Remove Schema lawas ben gak tumpuk
+    let existingSchema = document.getElementById('dynamic-news-schema');
+    if (existingSchema) existingSchema.remove();
+
+    const listSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": itemListElement
     };
+
+    const script = document.createElement('script');
+    script.id = 'dynamic-news-schema';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(listSchema);
+    document.head.appendChild(script);
+}
+
+// 4. Jalankan Pertama Kali Pas Web Dibuka
+window.addEventListener('DOMContentLoaded', (event) => {
+    fetchNandaNews();
+});
     </script>
 </body>
 </html>
