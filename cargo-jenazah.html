@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargo Jenazah Udara Banyuwangi | Layanan Pengiriman 24 Jam</title>
+    <title>Cargo Jenazah Udara & Laut Banyuwangi | Layanan Pemulangan 24 Jam</title>
     
     <meta name="description" content="Layanan Cargo Jenazah Udara Banyuwangi profesional. Pengurusan dokumen karantina, peti standar maskapai, dan pengantaran ke seluruh Indonesia. Respon cepat 24 Jam.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <style>
+        .gradient-dark { background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1436491865332-7a61a109c05d?w=1200'); background-size: cover; background-position: center; }
+        html { scroll-behavior: smooth; }
+    </style>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -18,11 +23,8 @@
         "@type": "EmergencyService",
         "name": "Ambulance Banyuwangi Center"
       },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Indonesia"
-      },
-      "description": "Layanan pengiriman jenazah jalur udara dari dan ke Banyuwangi lengkap dengan peti dan dokumen resmi."
+      "areaServed": { "@type": "Country", "name": "Indonesia" },
+      "description": "Layanan spesialis cargo jenazah udara dari Banyuwangi ke seluruh Indonesia dengan pengurusan dokumen lengkap."
     }
     </script>
 </head>
@@ -30,77 +32,53 @@
 
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <div class="text-blue-700 text-3xl"><i class="fas fa-plus-square"></i></div>
-                <span class="text-xl font-bold tracking-tighter uppercase italic">Ambulance<span class="text-blue-700">Banyuwangi</span></span>
+            <a href="index.html" class="flex items-center space-x-2 shrink-0">
+                <div class="text-blue-700 text-2xl md:text-3xl"><i class="fas fa-plus-square"></i></div>
+                <span class="text-lg md:text-xl font-bold tracking-tighter uppercase italic">Ambulance<span class="text-blue-700">Banyuwangi</span></span>
             </a>
-            <a href="tel:08123456789" class="bg-red-600 text-white px-5 py-2 rounded font-bold hover:bg-red-700 transition flex items-center shadow-lg text-sm">
-                <i class="fas fa-phone-alt mr-2"></i> EMERGENCY 24 JAM
+            <a href="tel:08123456789" class="bg-red-600 text-white p-2 md:px-5 md:py-2 rounded-lg font-bold hover:bg-red-700 transition flex items-center text-sm shrink-0 shadow-lg">
+                <i class="fas fa-phone-alt md:mr-2"></i> <span class="hidden md:inline text-xs uppercase">Emergency 24 Jam</span>
             </a>
         </div>
     </nav>
 
-    <header class="bg-slate-900 text-white py-20 relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10">
-            <h4 class="text-blue-400 font-bold uppercase tracking-widest mb-4">Layanan Spesialis</h4>
-            <h1 class="text-4xl md:text-6xl font-black uppercase italic mb-6">Cargo Jenazah Udara</h1>
-            <p class="text-lg text-slate-300 max-w-2xl mb-8">Solusi pengiriman jenazah lintas pulau dengan cepat, aman, dan terpercaya. Kami mengurus seluruh prosedur dari rumah sakit hingga alamat tujuan.</p>
-            <a href="https://wa.me/628123456789" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-black uppercase italic transition inline-flex items-center">
-                <i class="fab fa-whatsapp mr-3 text-2xl"></i> Hubungi Spesialis Cargo
-            </a>
-        </div>
-        <div class="absolute right-0 top-0 opacity-20 hidden lg:block">
-            <i class="fas fa-plane-departure text-[300px]"></i>
+    <header class="gradient-dark text-white py-20 md:py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 text-center lg:text-left">
+            <h4 class="text-blue-400 font-bold uppercase tracking-widest mb-4">Spesialis Pemulangan Jenazah</h4>
+            <h1 class="text-4xl md:text-6xl font-black uppercase italic mb-6 leading-tight">Cargo Jenazah Udara<br>& Seluruh Indonesia</h1>
+            <p class="text-lg text-slate-300 max-w-2xl mb-10 leading-relaxed">Membantu Anda mengirimkan orang terkasih kembali ke kampung halaman dengan hormat, cepat, dan prosedur resmi yang terjamin.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a href="https://wa.me/628123456789" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-black uppercase italic transition flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-3 text-2xl"></i> Hubungi Admin Cargo
+                </a>
+                <a href="#prosedur" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-bold uppercase transition flex items-center justify-center">
+                    Lihat Alur Kerja
+                </a>
+            </div>
         </div>
     </header>
 
-    <section class="py-20">
+    <section class="py-20 bg-slate-50">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl font-black uppercase italic mb-8">Apa Saja Yang Kami Urus?</h2>
-                    <ul class="space-y-6">
-                        <li class="flex items-start">
-                            <div class="bg-blue-100 text-blue-700 p-3 rounded-lg mr-4"><i class="fas fa-file-contract"></i></div>
-                            <div>
-                                <h5 class="font-bold text-lg">Dokumen & Perizinan</h5>
-                                <p class="text-slate-600">Pengurusan surat kematian, izin angkut jenazah, hingga dokumen karantina bandara.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="bg-blue-100 text-blue-700 p-3 rounded-lg mr-4"><i class="fas fa-box"></i></div>
-                            <div>
-                                <h5 class="font-bold text-lg">Peti Standar Maskapai</h5>
-                                <p class="text-slate-600">Penyediaan peti kayu/seng sesuai standar internasional regulasi penerbangan.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="bg-blue-100 text-blue-700 p-3 rounded-lg mr-4"><i class="fas fa-user-md"></i></div>
-                            <div>
-                                <h5 class="font-bold text-lg">Jasa Formalin Professional</h5>
-                                <p class="text-slate-600">Tindakan pengawetan jenazah oleh tenaga medis ahli untuk perjalanan jarak jauh.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800" class="rounded-3xl shadow-2xl" alt="Cargo Jenazah Service">
+                    <div class="absolute -bottom-6 -right-6 bg-blue-700 p-6 rounded-2xl shadow-xl hidden md:block">
+                        <p class="text-white font-bold italic">Terpercaya sejak 2011</p>
+                    </div>
                 </div>
-                <div class="bg-slate-100 p-8 rounded-3xl border-2 border-dashed border-slate-300">
-                    <h3 class="text-2xl font-bold mb-6 italic">Alur Pengiriman:</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-xl shadow-sm flex items-center">
-                            <span class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
-                            <span class="font-medium">Penjemputan dari RS/Rumah</span>
+                <div>
+                    <h2 class="text-3xl font-black uppercase italic mb-6">Tentang Layanan Cargo Kami</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Ambulance Banyuwangi Center memahami bahwa di saat duka, urusan logistik pengiriman jenazah bisa menjadi beban berat. Kami hadir untuk mengambil alih seluruh proses tersebut.</p>
+                    <p class="text-slate-600 mb-8">Kami bekerja sama dengan berbagai maskapai penerbangan nasional dan otoritas bandara untuk memastikan peti jenazah mendapatkan prioritas penerbangan tercepat.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border-l-4 border-blue-600 shadow-sm">
+                            <h5 class="font-bold text-blue-700">Respon Cepat</h5>
+                            <p class="text-xs text-slate-500">Admin standby 24 jam</p>
                         </div>
-                        <div class="bg-white p-4 rounded-xl shadow-sm flex items-center">
-                            <span class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
-                            <span class="font-medium">Pemulasaraan & Pemetian</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl shadow-sm flex items-center">
-                            <span class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
-                            <span class="font-medium">Pengurusan Dokumen Bandara</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl shadow-sm flex items-center">
-                            <span class="w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
-                            <span class="font-medium">Booking Flight & Cargo</span>
+                        <div class="bg-white p-4 rounded-xl border-l-4 border-red-600 shadow-sm">
+                            <h5 class="font-bold text-red-600">Prosedur Resmi</h5>
+                            <p class="text-xs text-slate-500">Izin Karantina & Polisi</p>
                         </div>
                     </div>
                 </div>
@@ -108,8 +86,119 @@
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-500 py-12 text-center">
-        <p>© 2026 Ambulance Banyuwangi Center. Cargo Jenazah Udara Specialist.</p>
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black italic uppercase">Kenapa Harus Memilih Kami?</h2>
+                <div class="h-1.5 w-24 bg-red-600 mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-50 rounded-3xl hover:bg-blue-700 hover:text-white transition duration-300 group">
+                    <i class="fas fa-shield-alt text-4xl text-blue-700 mb-6 group-hover:text-white"></i>
+                    <h4 class="text-xl font-bold mb-4 italic uppercase">Keamanan Terjamin</h4>
+                    <p class="text-sm opacity-80 leading-relaxed">Setiap jenazah melalui proses pemulasaraan standar medis dan pemetian yang sangat kokoh sesuai regulasi penerbangan internasional.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl hover:bg-blue-700 hover:text-white transition duration-300 group">
+                    <i class="fas fa-file-invoice-dollar text-4xl text-blue-700 mb-6 group-hover:text-white"></i>
+                    <h4 class="text-xl font-bold mb-4 italic uppercase">Harga Transparan</h4>
+                    <p class="text-sm opacity-80 leading-relaxed">Tanpa biaya tersembunyi. Semua rincian biaya cargo, peti, dan ambulance diinformasikan secara jujur di awal konsultasi.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl hover:bg-blue-700 hover:text-white transition duration-300 group">
+                    <i class="fas fa-network-wired text-4xl text-blue-700 mb-6 group-hover:text-white"></i>
+                    <h4 class="text-xl font-bold mb-4 italic uppercase">Jaringan Luas</h4>
+                    <p class="text-sm opacity-80 leading-relaxed">Melayani pengiriman dari Banyuwangi ke Jakarta, Sumatera, Kalimantan, Sulawesi, hingga Papua dengan rekanan ambulance di kota tujuan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prosedur" class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-black italic uppercase mb-8">Apa Saja Yang Kami Urus?</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <i class="fas fa-check-circle text-green-500 mr-4"></i>
+                            <span>Surat Kematian & Izin Angkut Jenazah</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <i class="fas fa-check-circle text-green-500 mr-4"></i>
+                            <span>Sertifikat Formalin (Embalming)</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <i class="fas fa-check-circle text-green-500 mr-4"></i>
+                            <span>Peti Jenazah Standar Maskapai (Lapis Seng)</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <i class="fas fa-check-circle text-green-500 mr-4"></i>
+                            <span>Dokumen Karantina Bandara & Tiket Cargo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-black italic uppercase mb-8">Alur Pengiriman</h2>
+                    <div class="border-l-2 border-blue-600 ml-4 space-y-12">
+                        <div class="relative pl-10">
+                            <div class="absolute -left-3.5 top-0 bg-blue-600 w-7 h-7 rounded-full flex items-center justify-center font-bold">1</div>
+                            <h5 class="font-bold text-xl mb-2 italic">Penjemputan</h5>
+                            <p class="text-slate-400 text-sm">Tim kami menjemput jenazah dari RS atau rumah duka menggunakan unit ambulance standar jenazah.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute -left-3.5 top-0 bg-blue-600 w-7 h-7 rounded-full flex items-center justify-center font-bold">2</div>
+                            <h5 class="font-bold text-xl mb-2 italic">Pemulasaraan & Pemetian</h5>
+                            <p class="text-slate-400 text-sm">Proses formalin dan memasukkan jenazah ke dalam peti khusus yang memenuhi syarat cargo udara.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute -left-3.5 top-0 bg-blue-600 w-7 h-7 rounded-full flex items-center justify-center font-bold">3</div>
+                            <h5 class="font-bold text-xl mb-2 italic">Terminal Cargo</h5>
+                            <p class="text-slate-400 text-sm">Pengurusan timbang berat, manifest cargo, dan pemeriksaan dokumen karantina di Bandara.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black italic uppercase mb-12">Galeri Aktivitas Cargo</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://images.unsplash.com/photo-1579154235602-44373db25d43?w=400" class="rounded-2xl shadow-md hover:scale-105 transition">
+                <img src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?w=400" class="rounded-2xl shadow-md hover:scale-105 transition">
+                <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400" class="rounded-2xl shadow-md hover:scale-105 transition">
+                <img src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=400" class="rounded-2xl shadow-md hover:scale-105 transition">
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontak" class="bg-slate-50 py-20 border-t">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="h-[350px] rounded-3xl overflow-hidden shadow-2xl">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m12!1m3!1d15792.000!2d114.3640!3d-8.2080!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMTInMjguOSJTIDExNMKwMjEnNTAuNCJF!5e0!3m2!1sid!2sid!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-3xl font-black italic uppercase mb-4">Butuh Cargo Jenazah Sekarang?</h2>
+                    <p class="text-blue-700 font-bold mb-8 uppercase tracking-widest">Hotline Spesialis Cargo 24 Jam</p>
+                    <div class="space-y-6">
+                        <a href="tel:08123456789" class="flex items-center space-x-4 border-l-4 border-red-600 pl-4 group">
+                            <div class="text-red-600 text-3xl group-hover:scale-110 transition"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <p class="font-bold text-xs text-slate-500 uppercase">Klik untuk Telpon</p>
+                                <p class="font-black text-3xl">0812-3456-7890</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/628123456789" class="bg-green-600 text-white px-8 py-4 rounded-xl font-black uppercase italic transition inline-flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-2xl"></i> Chat WhatsApp Admin
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-20 text-center text-slate-400 text-sm italic italic">
+                <p>© 2026 Ambulance Banyuwangi Center - Cargo Jenazah Specialist.</p>
+            </div>
+        </div>
     </footer>
 
 </body>
