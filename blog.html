@@ -54,9 +54,6 @@
 
     <main class="py-12">
         <div class="container mx-auto px-4 max-w-4xl">
-            <div id="news-image-container">
-                <div class="w-full h-[400px] bg-slate-200 animate-pulse rounded-3xl mb-12"></div>
-            </div>
             
             <div class="article-content" id="news-body">
                 <p class="text-center py-20 text-slate-400 italic">Mohon tunggu, sedang mengambil data...</p>
@@ -150,11 +147,7 @@
 
             // Gambar Utama
             if (entry.media$thumbnail) {
-                bigImg = entry.media$thumbnail.url.replace("s72-c", "s1600");
-                document.getElementById('news-image-container').innerHTML = 
-                    `<img src="${bigImg}" class="w-full h-[400px] object-cover rounded-3xl shadow-xl mb-12">`;
-            } else {
-                document.getElementById('news-image-container').innerHTML = "";
+                bigImg = entry.media$thumbnail.url.replace("s72-c", "s1600");   
             }
 
             // PANGGIL SCHEMA nganggo ISO DATE (Luwih disenengi Google)
