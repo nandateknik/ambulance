@@ -1,0 +1,10 @@
+# Robots.txt untuk Ambulance Banyuwangi Center
+User-agent: *
+Allow: /
+
+# Larang robot moco folder internal lek enek
+Disallow: /cgi-bin/
+Disallow: /private/
+
+# Link nang Sitemapmu (Ganti domain sesuai domain aslimu)
+Sitemap: https://nandateknik.github.io/ambulance//sitemap.xml
