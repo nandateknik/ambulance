@@ -94,12 +94,47 @@
         document.body.appendChild(script);
     }
 
-    function displaySinglePost(json) {
+        function generateSchema(title, content, date, imgUrl) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage", // Luwih spesifik gawe layanan ambulans
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": window.location.href
+        },
+        "headline": title,
+        "image": [imgUrl],
+        "datePublished": date,
+        "dateModified": date,
+        "author": {
+            "@type": "Organization",
+            "name": "Ambulance Banyuwangi Center",
+            "url": "https://www.ambulancebanyuwangicenter.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Ambulance Banyuwangi Center",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "hero.png" // Ganti karo logo aslimu
+            }
+        },
+        "description": content.substring(0, 160).replace(/<[^>]*>?/gm, '') // Njupuk ringkesan tulisan
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+}
+
+   function displaySinglePost(json) {
         const entry = json.entry;
         if (entry) {
             const title = entry.title.$t;
             const content = entry.content.$t;
-            const date = new Date(entry.published.$t).toLocaleDateString('id-ID', {
+            const isoDate = entry.published.$t; // Pakai ISO Date untuk Schema
+            const dateFormatted = new Date(isoDate).toLocaleDateString('id-ID', {
                 year: 'numeric', month: 'long', day: 'numeric'
             });
 
@@ -107,17 +142,23 @@
             document.title = title + " | Ambulance Banyuwangi Center";
             document.getElementById('news-title').innerText = title;
             document.getElementById('breadcrumb-title').innerText = title.substring(0, 20) + "...";
-            document.getElementById('news-date').innerText = date;
+            document.getElementById('news-date').innerText = dateFormatted;
             document.getElementById('news-body').innerHTML = content;
             
+            // Definisikan gambar default lek misale gak ono gambare
+            let bigImg = "hero.png"; 
+
             // Gambar Utama
             if (entry.media$thumbnail) {
-                const bigImg = entry.media$thumbnail.url.replace("s72-c", "s1600");
+                bigImg = entry.media$thumbnail.url.replace("s72-c", "s1600");
                 document.getElementById('news-image-container').innerHTML = 
                     `<img src="${bigImg}" class="w-full h-[400px] object-cover rounded-3xl shadow-xl mb-12">`;
             } else {
                 document.getElementById('news-image-container').innerHTML = "";
             }
+
+            // PANGGIL SCHEMA nganggo ISO DATE (Luwih disenengi Google)
+            generateSchema(title, content, isoDate, bigImg);
         }
     }
 
