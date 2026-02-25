@@ -290,28 +290,35 @@
         }
 
         function displayNews(json) {
-            const container = document.getElementById('json-news-container');
-            let html = '';
-            const entries = json.feed.entry;
-            if (entries) {
-                entries.forEach(entry => {
-                    const title = entry.title.$t;
-                    const link = entry.link.find(l => l.rel === 'alternate').href;
-                    let imgUrl = "https://images.unsplash.com/photo-1587350859728-117699f4a13d?w=600";
-                    if (entry.media$thumbnail) imgUrl = entry.media$thumbnail.url.replace("s72-c", "s600");
-                    html += `
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md border border-slate-100">
-                        <img src="${imgUrl}" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="font-bold text-lg mb-3 text-left">${title}</h4>
-                            <a href="${link}" target="_blank" class="text-red-600 font-bold text-xs uppercase italic">Selengkapnya</a>
-                        </div>
-                    </div>`;
-                });
-                container.innerHTML = html;
-            }
-        }
-        window.onload = fetchNandaNews;
+    const container = document.getElementById('json-news-container');
+    let html = '';
+    const entries = json.feed.entry;
+    if (entries) {
+        entries.forEach(entry => {
+            const title = entry.title.$t;
+            const fullId = entry.id.$t;
+            const newsId = fullId.split('-').pop(); 
+            
+            // BIKIN SLUG: Ngilangin simbol, spasi dadi tanda min (-)
+            const slug = title.toLowerCase()
+                .replace(/[^\w ]+/g, '')
+                .replace(/ +/g, '-');
+
+            let imgUrl = "https://images.unsplash.com/photo-1587350859728-117699f4a13d?w=600";
+            if (entry.media$thumbnail) imgUrl = entry.media$thumbnail.url.replace("s72-c", "s600");
+
+            html += `
+            <div class="bg-white rounded-xl overflow-hidden shadow-md border border-slate-100">
+                <img src="${imgUrl}" class="w-full h-48 object-cover">
+                <div class="p-6 text-left">
+                    <h4 class="font-bold text-lg mb-3">${title}</h4>
+                    <a href="blog.html?id=${newsId}&n=${slug}" class="text-red-600 font-bold text-xs uppercase italic hover:underline">Baca Selengkapnya</a>
+                </div>
+            </div>`;
+        });
+        container.innerHTML = html;
+    }
+}
     </script>
 </body>
 </html>
