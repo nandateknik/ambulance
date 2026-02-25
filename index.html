@@ -19,12 +19,10 @@
             background-size: cover; 
             background-position: center; 
         }
+        /* FAQ Accordion */
         .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
         .faq-item.active .faq-content { max-height: 200px; padding-bottom: 20px; }
         .faq-item.active .fa-chevron-down { transform: rotate(180deg); }
-        
-        /* Gaya Galeri Baru */
-        .gallery-item:hover .overlay-text { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="bg-white text-slate-800 font-sans">
@@ -36,9 +34,9 @@
                 <span class="text-xl font-bold tracking-tighter">MEDICAL<span class="text-blue-700">EXPRESS</span></span>
             </div>
             <div class="hidden lg:flex space-x-6 font-semibold text-sm uppercase">
-                <a href="#prosedur" class="hover:text-blue-700 transition">Prosedur</a>
                 <a href="#about" class="hover:text-blue-700 transition">Tentang Kami</a>
                 <a href="#layanan" class="hover:text-blue-700 transition">Layanan</a>
+                <a href="#prosedur" class="hover:text-blue-700 transition">Prosedur</a>
                 <a href="#berita" class="hover:text-blue-700 transition">Berita</a>
                 <a href="#kontak" class="hover:text-blue-700 transition">Kontak</a>
             </div>
@@ -53,21 +51,25 @@
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-3/5 text-center lg:text-left">
                     <h2 class="text-blue-400 font-bold tracking-[0.2em] uppercase mb-4 text-sm">Layanan Ambulans Berlisensi</h2>
-                    <h1 class="text-4xl md:text-6xl font-black mb-6 uppercase italic leading-tight">Siap Sedia 24 Jam<br>Menjangkau Nusantara</h1>
-                    <p class="text-lg text-slate-200 mb-10 font-light max-w-2xl">Layanan gawat darurat dan cargo jenazah via udara dengan prosedur resmi dan amanah.</p>
+                    <h1 class="text-4xl md:text-6xl font-black mb-6 uppercase italic leading-tight">Siap Sedia 24 Jam<br>Menjangkau Seluruh Nusantara</h1>
+                    <p class="text-lg text-slate-200 mb-10 font-light leading-relaxed max-w-2xl">Kami menyediakan jasa sewa ambulans gawat darurat, mobil jenazah darat, hingga layanan cargo jenazah via udara dengan prosedur resmi dan aman.</p>
+                    <div class="flex justify-center lg:justify-start">
+                         <a href="#layanan" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-full font-bold transition uppercase">Lihat Layanan Unggulan</a>
+                    </div>
                 </div>
                 <div class="lg:w-2/5 w-full">
-                    <div class="bg-red-700 p-8 rounded-3xl shadow-2xl border-b-8 border-red-900 text-white">
-                        <h3 class="text-2xl font-black uppercase italic mb-6 text-center">Pesan Cepat WA</h3>
+                    <div class="bg-red-700 p-8 rounded-3xl shadow-2xl border-b-8 border-red-900">
+                        <h3 class="text-2xl font-black uppercase italic mb-6 text-center text-white">Pesan Cepat WA</h3>
                         <form id="waForm" class="space-y-4">
                             <input type="text" id="nama" placeholder="Nama Pemesan" class="w-full p-4 bg-white text-slate-900 rounded-xl outline-none shadow-inner">
-                            <select id="layanan_select" class="w-full p-4 bg-white text-slate-900 rounded-xl outline-none shadow-inner text-slate-700">
+                            <select id="layanan_select" class="w-full p-4 bg-white text-slate-900 rounded-xl outline-none shadow-inner">
                                 <option>Ambulans Emergency</option>
                                 <option>Cargo Jenazah Udara</option>
                                 <option>Mobil Jenazah Darat</option>
+                                <option>Sewa Peti & Formalin</option>
                             </select>
-                            <textarea id="pesan" rows="3" placeholder="Alamat Penjemputan" class="w-full p-4 bg-white text-slate-900 rounded-xl outline-none shadow-inner"></textarea>
-                            <button type="button" onclick="kirimWhatsApp()" class="w-full bg-slate-900 hover:bg-black text-white py-5 rounded-xl font-black uppercase italic transition shadow-xl flex items-center justify-center">
+                            <textarea id="pesan" rows="3" placeholder="Alamat Penjemputan / Kebutuhan" class="w-full p-4 bg-white text-slate-900 rounded-xl outline-none shadow-inner"></textarea>
+                            <button type="button" onclick="kirimWhatsApp()" class="w-full bg-slate-900 hover:bg-black text-white py-5 rounded-xl font-black uppercase italic tracking-widest transition shadow-xl flex items-center justify-center">
                                 <i class="fab fa-whatsapp mr-3 text-2xl text-green-500"></i> KIRIM SEKARANG
                             </button>
                         </form>
@@ -78,23 +80,23 @@
     </header>
 
     <section id="prosedur" class="py-20 bg-slate-900 text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-black italic uppercase mb-16 text-center">Bagaimana Prosedur Kami?</h2>
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black italic uppercase mb-16">Bagaimana Prosedur Kami?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center">
                     <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">1</div>
-                    <h5 class="font-bold text-xl mb-4 text-blue-400">Konsultasi Admin</h5>
-                    <p class="text-slate-400 text-sm">Hubungi nomor hotline kami. Admin akan meminta data pasien dan lokasi tujuan.</p>
+                    <h5 class="font-bold text-xl mb-4">Konsultasi Admin</h5>
+                    <p class="text-slate-400 text-sm">Hubungi nomor hotline kami. Admin akan meminta data pasien/jenazah dan lokasi tujuan.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">2</div>
-                    <h5 class="font-bold text-xl mb-4 text-blue-400 text-left md:text-center">Persiapan Armada</h5>
-                    <p class="text-slate-400 text-sm text-left md:text-center">Kami menyiapkan unit dan tim medis yang sesuai dengan kebutuhan pasien.</p>
+                    <h5 class="font-bold text-xl mb-4">Persiapan Armada</h5>
+                    <p class="text-slate-400 text-sm">Kami menyiapkan unit dan tim medis yang sesuai dengan kebutuhan medis pasien di lapangan.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">3</div>
-                    <h5 class="font-bold text-xl mb-4 text-blue-400 text-left md:text-center">Eksekusi Tujuan</h5>
-                    <p class="text-slate-400 text-sm text-left md:text-center">Penjemputan sigap dan pengantaran dilakukan hingga sampai ke tujuan aman.</p>
+                    <h5 class="font-bold text-xl mb-4">Eksekusi & Tujuan</h5>
+                    <p class="text-slate-400 text-sm">Penjemputan dilakukan dengan sigap dan pengantaran dilakukan hingga sampai ke titik tujuan aman.</p>
                 </div>
             </div>
         </div>
@@ -103,14 +105,17 @@
     <section id="about" class="py-20 bg-slate-50">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="relative"><img src="hero.png" class="rounded-3xl shadow-2xl"></div>
+                <div class="relative">
+                    <img src="hero.png" alt="About Medical Express" class="rounded-3xl shadow-2xl">
+                </div>
                 <div>
                     <h4 class="text-blue-700 font-bold mb-2 uppercase tracking-widest text-left">Tentang Kami</h4>
-                    <h2 class="text-4xl font-extrabold mb-6 leading-tight uppercase italic text-left">Transportasi Medis Terpercaya</h2>
-                    <p class="text-slate-600 mb-8 leading-relaxed text-left text-lg">Medical Express hadir dengan armada terbaru dan tim medis berpengalaman untuk menjamin kenyamanan serta keselamatan pasien Anda.</p>
+                    <h2 class="text-4xl font-extrabold mb-6 leading-tight uppercase italic text-left text-slate-900">Solusi Transportasi Medis Terpercaya</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-lg italic text-blue-800 text-left font-medium">"Sama halnya dengan dedikasi Elvin Ambulance, kami berkomitmen memberikan pelayanan sepenuh hati di saat-saat kritis Anda."</p>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-left">Medical Express hadir dengan armada terbaru dan tim medis berpengalaman untuk menjamin kenyamanan serta keselamatan pasien atau pemulangan jenazah ke kampung halaman dengan hormat.</p>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <li class="flex items-center text-slate-700 font-bold text-sm uppercase"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Perizinan Resmi</li>
-                        <li class="flex items-center text-slate-700 font-bold text-sm uppercase"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Harga Jujur</li>
+                        <li class="flex items-center text-slate-700 font-medium"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Perizinan Resmi & Lengkap</li>
+                        <li class="flex items-center text-slate-700 font-medium"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Standar Prosedur Medis</li>
                     </ul>
                 </div>
             </div>
@@ -118,95 +123,137 @@
     </section>
 
     <section id="layanan" class="py-20 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-black italic uppercase mb-12">Layanan Unggulan Kami</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-slate-50 p-10 rounded-2xl border-b-8 border-blue-600 shadow-md">
-                    <i class="fas fa-file-medical text-5xl text-blue-600 mb-6"></i>
-                    <h4 class="font-black uppercase mb-4 italic">Cargo Jenazah</h4>
-                    <p class="text-slate-600 text-sm">Layanan pengiriman jenazah via udara dengan pengurusan dokumen lengkap.</p>
-                </div>
-                <div class="bg-slate-50 p-10 rounded-2xl border-b-8 border-slate-700 shadow-md">
-                    <i class="fas fa-ambulance text-5xl text-slate-700 mb-6"></i>
-                    <h4 class="font-black uppercase mb-4 italic">Ambulans Emergency</h4>
-                    <p class="text-slate-600 text-sm">Armada dengan peralatan medis lengkap untuk penanganan kritis.</p>
-                </div>
-                <div class="bg-slate-50 p-10 rounded-2xl border-b-8 border-orange-500 shadow-md">
-                    <i class="fas fa-box-open text-5xl text-orange-500 mb-6"></i>
-                    <h4 class="font-black uppercase mb-4 italic">Peti & Formalin</h4>
-                    <p class="text-slate-600 text-sm">Penyediaan peti standar maskapai dan jasa formalin profesional.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="galeri" class="py-20 bg-slate-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold uppercase italic">Galeri Aktivitas</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black italic uppercase tracking-tighter">Layanan Unggulan Kami</h2>
                 <div class="h-1.5 w-24 bg-red-600 mx-auto mt-4"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
-                <div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl shadow-xl group gallery-item">
-                    <img src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-8">
-                        <p class="text-white font-black italic uppercase">Armada Utama</p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-slate-50 p-10 rounded-2xl shadow-sm border-b-8 border-blue-600 hover:shadow-xl transition">
+                    <i class="fas fa-file-medical text-5xl text-blue-600 mb-6"></i>
+                    <h4 class="text-xl font-black uppercase mb-4 italic">Cargo Jenazah Udara</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Layanan pengiriman jenazah lintas pulau dengan pengurusan dokumen karantina dan peti standar maskapai.</p>
                 </div>
-                <div class="md:col-span-2 relative overflow-hidden rounded-3xl shadow-xl group gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="bg-slate-50 p-10 rounded-2xl shadow-sm border-b-8 border-slate-700 hover:shadow-xl transition text-left">
+                    <i class="fas fa-ambulance text-5xl text-slate-700 mb-6"></i>
+                    <h4 class="text-xl font-black uppercase mb-4 italic">Ambulans Emergency</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Armada dengan peralatan medis lengkap (Oksigen, AED, Tandu) untuk penanganan gawat darurat di tempat.</p>
                 </div>
-                <div class="relative overflow-hidden rounded-3xl shadow-xl group gallery-item">
-                    <img src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="relative overflow-hidden rounded-3xl shadow-xl group gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="bg-slate-50 p-10 rounded-2xl shadow-sm border-b-8 border-orange-500 hover:shadow-xl transition">
+                    <i class="fas fa-box-open text-5xl text-orange-500 mb-6"></i>
+                    <h4 class="text-xl font-black uppercase mb-4 italic">Peti & Formalin</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Penyediaan peti jenazah berbagai tipe dan jasa formalin profesional untuk pengiriman jarak jauh.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="berita" class="py-20 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-black italic uppercase mb-12 text-left">Berita & Edukasi</h2>
-            <div id="json-news-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"></div>
+    <section class="py-20 bg-blue-700 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-black italic uppercase text-center mb-16">Kenapa Harus Memilih Kami?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <i class="fas fa-clock text-4xl mb-4"></i>
+                    <h5 class="font-bold mb-2">Respon 24 Jam</h5>
+                    <p class="text-blue-100 text-sm">Tim kami selalu siaga kapanpun Anda membutuhkan.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-id-card text-4xl mb-4"></i>
+                    <h5 class="font-bold mb-2">Tim Profesional</h5>
+                    <p class="text-blue-100 text-sm">Driver dan paramedis bersertifikat resmi.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-money-bill-wave text-4xl mb-4"></i>
+                    <h5 class="font-bold mb-2">Harga Kompetitif</h5>
+                    <p class="text-blue-100 text-sm">Biaya transparan tanpa biaya tersembunyi.</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+                    <h5 class="font-bold mb-2">Jangkauan Luas</h5>
+                    <p class="text-blue-100 text-sm">Melayani seluruh wilayah di Nusantara.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer id="kontak" class="bg-slate-50 py-20 border-t border-slate-200 text-left">
+    <section id="galeri" class="py-20">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold uppercase italic">Galeri Album Aktivitas</h2>
+                <div class="h-1 w-24 bg-red-600 mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+                <div class="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden shadow-xl group relative">
+                    <img src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6"><span class="text-white font-bold italic uppercase">Unit Ambulance Utama</span></div>
+                </div>
+                <div class="md:col-span-2 rounded-3xl overflow-hidden shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="berita" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black italic uppercase">Berita & Edukasi</h2>
+                <p class="text-slate-500">Update otomatis dari Nanda Teknik.</p>
+            </div>
+            <div id="json-news-container" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-900 text-white text-left">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold uppercase italic mb-12 text-center">Tanya Jawab (FAQ)</h2>
+            <div class="space-y-4">
+                <div class="faq-item bg-white/5 p-6 rounded-xl border border-white/10 cursor-pointer" onclick="this.classList.toggle('active')">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-lg text-blue-400">Bagaimana cara memesan?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-content mt-4 text-slate-400">Cukup hubungi Hotline kami di 0812-3456-7890. Admin siaga 24 jam.</div>
+                </div>
+                <div class="faq-item bg-white/5 p-6 rounded-xl border border-white/10 cursor-pointer" onclick="this.classList.toggle('active')">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-lg text-blue-400">Apakah melayani seluruh Indonesia?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-content mt-4 text-slate-400">Ya, kami melayani pengantaran darat dan udara ke seluruh wilayah Nusantara.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontak" class="bg-slate-50 py-20 border-t border-slate-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-left">
                 <div class="h-[400px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.2415124115!2d106.759478!3d-6.229728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e18d6a8f1b%3A0x6a0f7c2317300!2sJakarta%20Selatan!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sid!2sid!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="flex flex-col justify-center">
-                    <h2 class="text-4xl font-black italic uppercase mb-8">Kontak Person</h2>
+                    <h2 class="text-3xl font-black italic uppercase mb-8">Kontak & Sosmed</h2>
                     <div class="space-y-6">
-                        <div class="flex items-center space-x-6">
-                            <div class="text-red-600 text-4xl pulse"><i class="fas fa-phone-alt"></i></div>
+                        <div class="flex items-center space-x-4 border-l-4 border-red-600 pl-4">
                             <div>
-                                <p class="font-bold uppercase text-xs text-slate-500">Hotline 24 Jam</p>
+                                <p class="font-bold uppercase text-xs text-slate-500">Hotline Darurat</p>
                                 <p class="font-black text-3xl">0812-3456-7890</p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl"><i class="fas fa-user-md"></i></div>
-                            <div><p class="font-bold">Bpk. Nanda (Operational Manager)</p></div>
-                        </div>
-                        
-                        <div class="pt-6 border-t border-slate-200">
-                            <p class="font-bold text-slate-400 uppercase text-xs mb-4 tracking-widest">Ikuti Kami:</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center text-xl hover:scale-110 transition shadow-lg"><i class="fab fa-whatsapp"></i></a>
-                                <a href="#" class="w-12 h-12 bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 text-white rounded-full flex items-center justify-center text-xl hover:scale-110 transition shadow-lg"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl hover:scale-110 transition shadow-lg"><i class="fab fa-tiktok"></i></a>
-                            </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="mt-20 text-center text-slate-400 text-sm italic">
-                <p>© 2026 Medical Express. Melayani Sepenuh Hati.</p>
             </div>
         </div>
     </footer>
@@ -216,41 +263,31 @@
             const nama = document.getElementById('nama').value;
             const layanan = document.getElementById('layanan_select').value;
             const pesan = document.getElementById('pesan').value;
-            if (nama === "" || pesan === "") { alert("Isi Nama & Pesan Anda."); return; }
-            const nomorWA = "628123456789"; 
-            const formatPesan = `Halo Admin Medical Express,%0A%0A*Nama:* ${nama}%0A*Layanan:* ${layanan}%0A*Kebutuhan:* ${pesan}`;
-            window.open(`https://wa.me/${nomorWA}?text=${formatPesan}`, '_blank');
+            if (nama === "" || pesan === "") { alert("Isi data!"); return; }
+            window.open(`https://wa.me/628123456789?text=Halo Admin,*Nama:* ${nama}%0A*Layanan:* ${layanan}%0A*Pesan:* ${pesan}`, '_blank');
         }
 
         function fetchNandaNews() {
-            const blogUrl = "https://www.nandateknik.com/feeds/posts/default?alt=json-in-script&callback=displayNews&max-results=3";
             const script = document.createElement('script');
-            script.src = blogUrl;
+            script.src = "https://www.nandateknik.com/feeds/posts/default?alt=json-in-script&callback=displayNews&max-results=3";
             document.body.appendChild(script);
         }
 
-      function displayNews(json) {
-    const container = document.getElementById('json-news-container');
-    if(!json.feed.entry) return;
-    let html = '';
-    json.feed.entry.forEach(e => {
-        const title = e.title.$t;
-        // Kita ambil slug dari link asli blogspot untuk dikirim ke baca.html
-        const fullLink = e.link.find(l => l.rel === 'alternate').href;
-        const slug = fullLink.split('/').pop(); // Mengambil bagian 'judul-berita.html'
-
-        let img = e.media$thumbnail ? e.media$thumbnail.url.replace("s72-c", "s600") : "https://via.placeholder.com/600x400";
-        
-        html += `<div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 group">
-            <div class="h-48 overflow-hidden"><img src="${img}" class="w-full h-full object-cover group-hover:scale-110 transition"></div>
-            <div class="p-6">
-                <h4 class="font-black text-sm mb-4 italic uppercase">${title}</h4>
-                <a href="baca.html?post=${slug}" class="text-blue-600 font-bold text-xs uppercase italic tracking-widest">Baca Selengkapnya →</a>
-            </div>
-        </div>`;
-    });
-    container.innerHTML = html;
-}
+        function displayNews(json) {
+            const container = document.getElementById('json-news-container');
+            let html = '';
+            const entries = json.feed.entry;
+            if (entries) {
+                entries.forEach(entry => {
+                    const title = entry.title.$t;
+                    const link = entry.link.find(l => l.rel === 'alternate').href;
+                    let imgUrl = "https://via.placeholder.com/600x400";
+                    if (entry.media$thumbnail) imgUrl = entry.media$thumbnail.url.replace("s72-c", "s600");
+                    html += `<div class="bg-white rounded-xl overflow-hidden shadow-md border border-slate-100"><img src="${imgUrl}" class="w-full h-48 object-cover"><div class="p-6"><h4 class="font-bold text-lg mb-3">${title}</h4><a href="${link}" target="_blank" class="text-red-600 font-bold text-xs uppercase italic">Selengkapnya</a></div></div>`;
+                });
+                container.innerHTML = html;
+            }
+        }
         window.onload = fetchNandaNews;
     </script>
 </body>
