@@ -189,70 +189,86 @@
         </div>
     </footer>
 
-    <script>
-        // 1. FUNGSI KIRIM WHATSAPP
-        function kirimWhatsApp() {
-            const nama = document.getElementById('nama').value;
-            const layanan = document.getElementById('layanan_select').value;
-            const pesan = document.getElementById('pesan').value;
-            
-            if (nama === "" || pesan === "") {
-                alert("Mohon isi Nama dan Pesan/Lokasi Anda terlebih dahulu.");
-                return;
-            }
-
-            const nomorWA = "628123456789"; 
-            const formatPesan = `Halo Admin Medical Express,%0A%0ASaya ingin memesan layanan ambulans.%0A%0A*Nama:* ${nama}%0A*Layanan:* ${layanan}%0A*Pesan/Lokasi:* ${pesan}%0A%0AMohon diproses segera. Terima kasih.`;
-            window.open(`https://wa.me/${nomorWA}?text=${formatPesan}`, '_blank');
+  <script>
+    // 1. FUNGSI KIRIM WHATSAPP (Tetap sama)
+    function kirimWhatsApp() {
+        const nama = document.getElementById('nama').value;
+        const layanan = document.getElementById('layanan_select').value;
+        const pesan = document.getElementById('pesan').value;
+        
+        if (nama === "" || pesan === "") {
+            alert("Mohon isi Nama dan Pesan/Lokasi Anda terlebih dahulu.");
+            return;
         }
 
-        // 2. FUNGSI AMBIL BERITA DARI NANDATEKNIK.COM (JSON)
-        function fetchNandaNews() {
-            const blogUrl = "https://www.nandateknik.com/feeds/posts/default?alt=json-in-script&callback=displayNews&max-results=3";
-            const script = document.createElement('script');
-            script.src = blogUrl;
-            document.body.appendChild(script);
+        const nomorWA = "628123456789"; 
+        const formatPesan = `Halo Admin Medical Express,%0A%0ASaya ingin memesan layanan ambulans.%0A%0A*Nama:* ${nama}%0A*Layanan:* ${layanan}%0A*Pesan/Lokasi:* ${pesan}%0A%0AMohon diproses segera. Terima kasih.`;
+        window.open(`https://wa.me/${nomorWA}?text=${formatPesan}`, '_blank');
+    }
+
+    // 2. FUNGSI AMBIL BERITA
+    function fetchNandaNews() {
+        // Kita tambahkan parameter 'summary' supaya lebih aman
+        const blogUrl = "https://www.nandateknik.com/feeds/posts/default?alt=json-in-script&callback=displayNews&max-results=3";
+        const script = document.createElement('script');
+        script.src = blogUrl;
+        document.body.appendChild(script);
+    }
+
+    // 3. FUNGSI DISPLAY BERITA (DENGAN PROTEKSI ERROR)
+    function displayNews(json) {
+        const container = document.getElementById('json-news-container');
+        let html = '';
+        const entries = json.feed.entry;
+
+        if (entries) {
+            entries.forEach(entry => {
+                // Proteksi Title
+                const title = entry.title ? entry.title.$t : "Tanpa Judul";
+                
+                // Cari Link
+                const link = entry.link.find(l => l.rel === 'alternate').href;
+                
+                // Proteksi Isi/Summary (Kita bersihkan tag HTML-nya juga)
+                let content = "";
+                if (entry.summary) {
+                    content = entry.summary.$t;
+                } else if (entry.content) {
+                    content = entry.content.$t;
+                }
+                const snippet = content.replace(/<[^>]*>?/gm, '').substring(0, 100) + "...";
+                
+                // Proteksi Gambar
+                let imgUrl = "https://images.unsplash.com/photo-1587350859728-117699f4a13d?w=600";
+                if (entry.media$thumbnail) {
+                    imgUrl = entry.media$thumbnail.url.replace("s72-c", "s600");
+                } else if (entry.content && entry.content.$t.includes("<img")) {
+                    // Cari gambar di dalam konten kalau thumbnail gak ada
+                    const regex = /<img[^>]+src="([^">]+)"/g;
+                    const match = regex.exec(entry.content.$t);
+                    if (match) imgUrl = match[1];
+                }
+
+                // Desain tetap sama persis, Bro!
+                html += `
+                <div class="bg-white rounded-xl overflow-hidden shadow-md group">
+                    <img src="${imgUrl}" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500" alt="${title}">
+                    <div class="p-6">
+                        <span class="text-blue-600 text-xs font-bold uppercase">Berita Terbaru</span>
+                        <h4 class="font-bold text-lg mt-2 mb-3">${title}</h4>
+                        <p class="text-slate-500 text-sm mb-4">${snippet}</p>
+                        <a href="${link}" target="_blank" class="text-red-600 font-bold text-xs uppercase italic">Selengkapnya</a>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        } else {
+            container.innerHTML = "<p class='text-slate-400'>Belum ada berita terbaru.</p>";
         }
+    }
 
-        // 3. FUNGSI DISPLAY BERITA (MEMPERTAHANKAN DESAIN KAMU)
-        function displayNews(json) {
-            const container = document.getElementById('json-news-container');
-            let html = '';
-            const entries = json.feed.entry;
-
-            if (entries) {
-                entries.forEach(entry => {
-                    const title = entry.title.$t;
-                    const link = entry.link.find(l => l.rel === 'alternate').href;
-                    const snippet = entry.summary.$t.substring(0, 100) + "...";
-                    
-                    // Ambil Gambar (Jika tidak ada pakai placeholder)
-                    let imgUrl = "https://images.unsplash.com/photo-1587350859728-117699f4a13d?w=600";
-                    if (entry.media$thumbnail) {
-                        imgUrl = entry.media$thumbnail.url.replace("s72-c", "s600");
-                    }
-
-                    // Gunakan Struktur HTML Persis Desain Kamu
-                    html += `
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md group">
-                        <img src="${imgUrl}" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-                        <div class="p-6">
-                            <span class="text-blue-600 text-xs font-bold uppercase">Berita Terbaru</span>
-                            <h4 class="font-bold text-lg mt-2 mb-3">${title}</h4>
-                            <p class="text-slate-500 text-sm mb-4">${snippet}</p>
-                            <a href="${link}" target="_blank" class="text-red-600 font-bold text-xs uppercase italic">Selengkapnya</a>
-                        </div>
-                    </div>`;
-                });
-                container.innerHTML = html;
-            } else {
-                container.innerHTML = "<p>Gagal memuat berita.</p>";
-            }
-        }
-
-        // Jalankan fungsi ambil berita saat halaman siap
-        window.onload = fetchNandaNews;
-    </script>
+    window.onload = fetchNandaNews;
+</script>
 
 </body>
 </html>
