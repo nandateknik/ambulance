@@ -3,157 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ambulance Banyuwangi 24 Jam - Cepat & Profesional</title>
+    <title>Jasa Ambulans & Cargo Jenazah | Medical Express</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .hero-gradient { background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%); }
+        .pulse { animation: pulse-animation 2s infinite; }
+        @keyframes pulse-animation {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+        .bg-medical { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-slate-50 text-slate-800 font-sans">
 
     <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <div class="bg-red-600 p-2 rounded-full">
-                    <i class="fas fa-ambulance text-white text-xl"></i>
-                </div>
-                <div>
-                    <h1 class="font-bold text-red-600 leading-tight">AMBULANCE BANYUWANGI</h1>
-                    <p class="text-xs text-gray-500">Cepat, Tanggap, Profesional</p>
-                </div>
+                <div class="text-blue-700 text-3xl"><i class="fas fa-plus-square"></i></div>
+                <span class="text-xl font-bold tracking-tighter">MEDICAL<span class="text-blue-700">EXPRESS</span></span>
             </div>
-            <a href="https://wa.me/628123456789" class="hidden md:block bg-red-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-red-700 transition">
-                <i class="fab fa-whatsapp mr-2"></i>Hubungi Sekarang
+            <div class="hidden lg:flex space-x-8 font-medium">
+                <a href="#" class="hover:text-blue-700">Home</a>
+                <a href="#layanan" class="hover:text-blue-700">Layanan</a>
+                <a href="#cargo" class="hover:text-blue-700">Cargo Jenazah</a>
+                <a href="#kontak" class="hover:text-blue-700">Kontak</a>
+            </div>
+            <a href="tel:08123456789" class="bg-red-600 text-white px-6 py-2 rounded-lg font-bold pulse hover:bg-red-700 transition shadow-lg">
+                <i class="fas fa-phone-alt mr-2"></i> HOTLINE 24 JAM
             </a>
         </div>
     </nav>
 
-    <header class="hero-gradient text-white py-12 px-4">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">Layanan Darurat Medis & Jenazah</h2>
-            <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">Standby 24 Jam melayani seluruh wilayah Banyuwangi hingga keluar kota dengan pelayanan terbaik.</p>
-            <div class="bg-white p-4 rounded-xl inline-block shadow-2xl">
-                <img src="hero.png" alt="Ambulance" class="rounded-lg shadow-inner max-w-full h-auto md:w-[500px]">
+    <header class="relative bg-medical text-white py-24 overflow-hidden">
+        <div class="container mx-auto px-4 relative flex flex-col lg:flex-row items-center">
+            <div class="lg:w-3/5 mb-12 lg:mb-0 z-10">
+                <h2 class="text-blue-400 font-bold tracking-widest uppercase mb-4 text-sm">Professional Medical Transport</h2>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">Layanan Ambulans & <br>Pengiriman Jenazah Seluruh Indonesia</h1>
+                <p class="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">
+                    Kami menyediakan solusi transportasi medis darurat dan layanan kedukaan yang bermartabat. Berpengalaman dalam pengiriman jenazah via darat maupun udara (cargo) dengan proses yang cepat dan legalitas lengkap.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#layanan" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold transition">Lihat Layanan</a>
+                    <a href="https://wa.me/08123456789" class="bg-white text-slate-900 px-8 py-4 rounded-lg font-bold hover:bg-slate-100 transition flex items-center">
+                        <i class="fab fa-whatsapp mr-2 text-green-600 text-xl"></i> Konsultasi Gratis
+                    </a>
+                </div>
             </div>
-            <div class="mt-8">
-                <a href="https://wa.me/628123456789" class="bg-green-500 hover:bg-green-600 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition-all transform hover:scale-105 inline-block">
-                    <i class="fab fa-whatsapp mr-2"></i> HUBUNGI SEKARANG
-                </a>
+            <div class="lg:w-2/5 relative">
+                <img src="https://images.unsplash.com/photo-1516550130565-3e7503994ae3?auto=format&fit=crop&q=80&w=800" alt="Layanan Medis" class="rounded-2xl shadow-2xl border-4 border-white/10 relative z-10">
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl z-20 hidden md:block">
+                    <p class="text-slate-900 font-bold text-3xl">100%</p>
+                    <p class="text-slate-500 text-sm">Terpercaya & Legal</p>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="py-16 container mx-auto px-4">
-        <h3 class="text-center text-3xl font-bold mb-12">Mengapa Memilih Kami?</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-clock text-red-600 text-3xl mb-4"></i>
-                <h4 class="font-bold text-lg mb-2">Respon Cepat 24/7</h4>
-                <p class="text-gray-600 text-sm">Tim standby di titik strategis untuk respon secepat mungkin.</p>
+    <section id="layanan" class="py-20 bg-slate-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">Layanan Unggulan Kami</h2>
+                <p class="text-slate-600 mt-4">Solusi transportasi medis dan kedukaan terlengkap untuk kebutuhan Anda.</p>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-truck-medical text-red-600 text-3xl mb-4"></i>
-                <h4 class="font-bold text-lg mb-2">Armada Modern</h4>
-                <p class="text-gray-600 text-sm">Kendaraan lengkap dengan oksigen dan peralatan medis standar.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-user-md text-red-600 text-3xl mb-4"></i>
-                <h4 class="font-bold text-lg mb-2">Tenaga Medis Ahli</h4>
-                <p class="text-gray-600 text-sm">Paramedis terlatih untuk menangani kondisi darurat.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-tag text-red-600 text-3xl mb-4"></i>
-                <h4 class="font-bold text-lg mb-2">Tarif Transparan</h4>
-                <p class="text-gray-600 text-sm">Biaya jujur dan kompetitif tanpa biaya tersembunyi.</p>
-            </div>
-        </div>
-    </section>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition group border-t-4 border-blue-600">
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Ambulans Pasien</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">Layanan antar-jemput pasien (kontrol RS, pindah rawat, pulang RS) dengan paramedis yang ramah dan kompeten.</p>
+                        <ul class="text-sm space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Standar Oksigen & Medis</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Pendampingan Perawat</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <section class="bg-gray-100 py-16 px-4">
-        <div class="container mx-auto">
-            <h3 class="text-center text-3xl font-bold mb-12">Layanan Kami</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl flex items-start space-x-4 border-l-4 border-red-600">
-                    <div class="bg-red-50 p-3 rounded-lg"><i class="fas fa-heartbeat text-red-600 text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl mb-1">Ambulance Emergency</h4>
-                        <p class="text-gray-600">Penanganan pasien kritis dengan alat pantau jantung & oksigen.</p>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition group border-t-4 border-slate-700">
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-slate-700 group-hover:text-white transition-all">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Mobil Jenazah Darat</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">Layanan duka pengantaran jenazah ke rumah duka atau pemakaman baik dalam kota maupun ke luar kota/provinsi.</p>
+                        <ul class="text-sm space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Armada Bersih & Wangi</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Driver Berpengalaman</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl flex items-start space-x-4 border-l-4 border-red-600">
-                    <div class="bg-red-50 p-3 rounded-lg"><i class="fas fa-exchange-alt text-red-600 text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl mb-1">Transfer Pasien</h4>
-                        <p class="text-gray-600">Antar jemput antar Rumah Sakit (Banyuwangi, Jember, Bali, Surabaya).</p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl flex items-start space-x-4 border-l-4 border-red-600">
-                    <div class="bg-red-50 p-3 rounded-lg"><i class="fas fa-church text-red-600 text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl mb-1">Ambulance Jenazah</h4>
-                        <p class="text-gray-600">Pelayanan pengantaran jenazah ke seluruh Indonesia secara terhormat.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl flex items-start space-x-4 border-l-4 border-red-600">
-                    <div class="bg-red-50 p-3 rounded-lg"><i class="fas fa-users text-red-600 text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl mb-1">Event Medical Standby</h4>
-                        <p class="text-gray-600">Tim medis untuk konser, turnamen olahraga, dan acara besar.</p>
+
+                <div id="cargo" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition group border-t-4 border-orange-500">
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-orange-600 group-hover:text-white transition-all">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Cargo Jenazah (Udara)</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">Layanan pengiriman jenazah via udara antar pulau. Kami urus semua dokumen, peti standar cargo, hingga serah terima di bandara tujuan.</p>
+                        <ul class="text-sm space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Pengurusan Surat Kematian</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Peti Jenazah Standar Maskapai</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 container mx-auto px-4">
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-            <div class="md:w-1/2 p-8 md:p-12">
-                <h3 class="text-2xl font-bold mb-6">Area Layanan Kami</h3>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-700"><i class="fas fa-map-marker-alt text-red-600 mr-3"></i> Banyuwangi Kota & Giri</li>
-                    <li class="flex items-center text-gray-700"><i class="fas fa-map-marker-alt text-red-600 mr-3"></i> Rogojampi & Genteng</li>
-                    <li class="flex items-center text-gray-700"><i class="fas fa-map-marker-alt text-red-600 mr-3"></i> Muncar & Cluring</li>
-                    <li class="flex items-center text-gray-700"><i class="fas fa-map-marker-alt text-red-600 mr-3"></i> Wongsorejo & Ketapang</li>
-                </ul>
-                <div class="mt-8 p-4 bg-red-50 rounded-lg border border-red-100">
-                    <p class="text-sm text-red-800 font-medium italic">"Siap melayani penjemputan dari rumah, stasiun, bandara, atau pelabuhan."</p>
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-medical rounded-3xl p-10 md:p-16 text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Bagaimana Prosedur Kami?</h2>
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-600 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+                                <div>
+                                    <h5 class="font-bold">Konsultasi Layanan</h5>
+                                    <p class="text-slate-300 text-sm">Hubungi admin kami untuk menentukan jenis layanan dan estimasi biaya.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-600 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+                                <div>
+                                    <h5 class="font-bold">Persiapan Armada & Dokumen</h5>
+                                    <p class="text-slate-300 text-sm">Kami menyiapkan armada medis atau pengurusan surat izin (khusus cargo).</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-600 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+                                <div>
+                                    <h5 class="font-bold">Penjemputan & Pengantaran</h5>
+                                    <p class="text-slate-300 text-sm">Proses pengantaran dilakukan dengan pengawasan ketat hingga sampai ke lokasi tujuan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                        <h4 class="text-xl font-bold mb-4 text-orange-400 font-mono italic">"Ketepatan waktu dan keamanan pasien/jenazah adalah prioritas utama kami."</h4>
+                        <p class="text-slate-300">Sama halnya dengan Elvin Ambulance Service, kami memastikan setiap prosedur dilakukan sesuai standar hukum dan kesehatan yang berlaku di Indonesia.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="md:w-1/2 bg-gray-200 min-h-[300px] flex items-center justify-center">
-                <p class="text-gray-500 font-medium">[ Peta Banyuwangi Area ]</p>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12 px-4">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="kontak" class="py-20 container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-left">
             <div>
-                <h4 class="font-bold text-xl mb-4">Ambulance Banyuwangi</h4>
-                <p class="text-gray-400 text-sm">Layanan ambulance swasta terpercaya di Kabupaten Banyuwangi. Tersedia untuk kebutuhan darurat maupun non-darurat.</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-xl mb-4">Kontak Kami</h4>
-                <p class="text-gray-400 text-sm">Jl. Raya Brawijaya No. XX, Banyuwangi</p>
-                <p class="text-gray-400 text-sm mt-2">WhatsApp: 0812-3456-789</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-xl mb-4">Ikuti Kami</h4>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-2xl hover:text-red-500 transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-2xl hover:text-red-500 transition"><i class="fab fa-facebook"></i></a>
+                <h2 class="text-3xl font-bold mb-6">Hubungi Kami</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-blue-700 text-xl"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h5 class="font-bold">Kantor Operasional</h5>
+                            <p class="text-slate-600">Jl. Utama Teknis No. 123, Jakarta Selatan</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="text-blue-700 text-xl"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h5 class="font-bold">Layanan Darurat 24 Jam</h5>
+                            <p class="text-slate-600">0812-3456-7890 (WhatsApp/Call)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 p-6 bg-blue-50 rounded-xl border border-blue-100">
+                    <p class="text-blue-900 font-medium">Melayani seluruh wilayah Indonesia, mulai dari penjemputan rumah sakit, rumah duka, hingga bandara.</p>
                 </div>
             </div>
+            <div class="h-[400px] rounded-2xl overflow-hidden shadow-2xl border">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.24155106509!2d106.75947792618991!3d-6.229728024921966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e18a802773%3A0x7d8a9e7f2f18399e!2sJakarta%20Selatan!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
         </div>
-        <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
-            &copy; 2024 Ambulance Banyuwangi. All rights reserved.
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <p>© 2026 Medical Express & Technical Service. Seluruh fitur lama tetap kami pertahankan dengan standar kualitas yang sama.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/628123456789" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition z-50 animate-bounce">
-        <i class="fab fa-whatsapp"></i>
+    <a href="tel:08123456789" class="md:hidden fixed bottom-6 right-6 bg-red-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl pulse z-[100]">
+        <i class="fas fa-phone-alt text-xl"></i>
     </a>
 
 </body>
