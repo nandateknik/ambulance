@@ -1,10 +1,29 @@
-# Robots.txt untuk Ambulance Banyuwangi Center
+# ==========================================================
+# Robots.txt for Nanda Teknik Banyuwangi (Specialist WEBSITE)
+# ==========================================================
+
 User-agent: *
 Allow: /
 
-# Larang robot moco folder internal lek enek
+# Larang robot moco folder internal & aset sing gak perlu tampil
 Disallow: /cgi-bin/
 Disallow: /private/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /node_modules/
 
-# Link nang Sitemapmu (Ganti domain sesuai domain aslimu)
-Sitemap: https://nandateknik.github.io/ambulance//sitemap.xml
+# Larang robot moco file temporary utowo database (lek Mas nggawe)
+Disallow: *.log
+Disallow: *.sql
+Disallow: *.json
+
+# Khusus Googlebot - Ben luwih sregep mampir
+User-agent: Googlebot
+Allow: /
+
+# Sitemap Link (Ganti karo domain aslimu, misale nandateknik.com)
+Sitemap: https://www.ambulancebanyuwangi.com/sitemap.xml
+
+# ==========================================================
+# Teknik Beres, Adem Terus! - Nanda Teknik 2026
+# ==========================================================
